@@ -1,232 +1,169 @@
 :root {
-    --primaryText: #fff;
-    --secondaryText: #4869fe;
-    --primary: rgba(58, 76, 242, 0.6);
-    --secondary: rgb(132, 140, 255); 
-    --buttonHover: rgba(25, 20, 130, 0.4);
-    --smallButtonHover: rgba(0, 0, 0, .25);
+  --btn-h: 2.75rem;
 }
 
-html {
-    box-sizing: border-box;
-    /* keeps button boxes within phone screen width */
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    height: 100%;
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 body {
-    margin: 0;
-    min-height: 100%;
-    /* The image used for the site background. Try changing skyscape.jpg to stars.jpg. Put a replacement photo in the images folder and, in line 21 below, replace skyscape.jpg with yourbackgroundfilename.jpg */
-    /* The linear gradient darkens the image, like putting a sunglasses lens on top of it. If you want to darken the image even more, change 0.1 (both times) to 0.3 or higher */
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../images/pavillions.JPG);
-    /* Prevents the browser from repeating or "tiling" the background image */
-    background-repeat: no-repeat;
-    background-position: center;
-    /* Freezes the image so that even the content scrolls down, the background stays put */
-    background-attachment: fixed;
-    /* Resizes the background image to cover the entire container */
-    background-size: cover;
-    font-family: "Lexend Deca", sans-serif;
-    line-height: 1.5;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
-h1 {
-    font-size: 1em;
+/* ── TOP SECTION ── */
+
+.top-section {
+  flex: 0 0 58%;
+  height: 58%;
+  position: relative;
+  background: url('../images/website-top.png') center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
-h2 {
-    font-size: 1em;
-    margin-bottom: 0;
-}
-
-img {
-    margin: .5em 1em;
-    /* border: 1px solid #ccc; */
-    border-radius: 50%;
-    height: 150px;
-    max-width: 100%;
-    object-fit: cover;
-    /* Resizes the image to cover the entire container */
-}
-
-.container {
-    padding: 0%;
-    margin: 0;
-    text-align: center;
-    /* width: 100%;     */
-    padding: 0;
-    margin-right: auto;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-}
-
-.image-container {
-    text-align: center;
-    width: 100%;
-}
-
-.main-text-color {
-    color: var(--primaryText);
-}
-
-.name {
-    color: var(--secondaryText);
-}
-
-.name strong {
-    background-color: rgba(0, 0, 0, 0.50);
-}
-
-.section-header {
-    padding-top: .5em;
-}
-
-.button,
-.intro,
-.links-container,
-.slidedown,
-.external-link {
-    width: 100%;
-    min-width: 50%;
-    padding: .5em 1em;
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-}
-
-.button, .external-link {
-    border: 1px solid var(--primaryText);
-    border-radius: 20px;
-    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-    background-color: var(--primary);
-    cursor: pointer;
-    transition: 0.2s all;
-}
-
-.button:not(.highlight) {
-    background-color: var(--primary);
-}
-
-@media (hover: hover) {
-    .button:hover { background-color: var(--buttonHover); }
-}
-
-.button.highlight {
-    background-color: var(--secondary);
-}
-
-.button:active, .external-link:active { 
-    transform: scale(0.98); 
-    /* Scaling button to 0.98 to its original size */ 
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
-    /* Lowering the shadow */ 
-} 
-
-.intro {
-    margin: 0 auto;
-}
-
-.section {
-    margin-top: 1em;
-}
-
-.slidedown {
-    margin: 0 auto;
-    padding: 0;
-    -webkit-transition: height .4s ease;
-    -o-transition: height .4s ease;
-    transition: height .4s ease;
-    overflow: hidden;
-    height: 0;
-}
-
-.external-link {
-    border: 1px solid var(--primaryText);
-    border-radius: 20px;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: .5em auto 1.5em auto;
-    text-decoration: none;
-    color: inherit;
-    height: 2em;
-    width: 6em;
-}
-
-.external-link:hover {
-    background-color: var(--smallButtonHover)
-}
-
-.description {
-    display: flex;
-    text-align: left;
-    flex-direction: column;
-    padding: 0 .6em;
-}
-
-.description > p {
-    margin: .5em 0;
-}
-
-.footer {
-  font-size: .66em;
-  background-color: rgba(0, 0, 0, .5);
-  color: rgba(225, 225, 225, .8);
-  text-decoration: none;
+.name-bar {
+  display: flex;
+  align-items: stretch;
   width: 100%;
-  min-height: 3em;
+}
+
+.name-box {
+  background: #fff;
+  color: #000;
+  font-size: clamp(2.8rem, 7.5vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.1em 0.28em;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+.name-line {
+  flex: 1;
+  align-self: center;
+  height: 3px;
+  background: #fff;
+}
+
+.tagline {
+  color: #fff;
+  font-size: clamp(0.8rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  padding: 0 2.5rem 2rem 2.5rem;
+  letter-spacing: 0.005em;
+}
+
+/* ── BOTTOM SECTION ── */
+
+.bottom-section {
+  flex: 1;
+  position: relative;
+  z-index: 10;
+  background: url('../images/website-bottom.png') center center / cover no-repeat;
+  display: flex;
+  align-items: flex-start;
+  padding: 5% 7%;
+  gap: 6%;
+}
+
+/* ── COLUMNS ── */
+
+.col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.about-title {
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+/* ── BUTTONS ── */
+
+.btn {
+  display: block;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  height: var(--btn-h);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  width: 260px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Left column buttons only: grow to hug content */
+.col-left .btn {
+  width: fit-content;
+  min-width: 260px;
+}
+
+.col-left .btn:hover {
+  z-index: 2;
+}
+
+.btn-desc {
+  font-weight: 300;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 280ms ease, opacity 200ms ease;
+}
+
+.col-left .btn:hover .btn-desc {
+  opacity: 0.9;
+  max-width: 700px;
+}
+
+.btn-track {
+  display: flex;
+  flex-direction: column;
+  transition: transform 200ms ease;
+}
+
+.btn:hover .btn-track {
+  transform: translateY(calc(-1 * var(--btn-h)));
+}
+
+.btn-face {
+  height: var(--btn-h);
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  gap: 0.65rem;
+  padding: 0 1rem;
+  white-space: nowrap;
 }
 
-.footer a {
-    color: inherit;
+.btn-hover-face {
+  opacity: 0.6;
+  font-style: italic;
 }
 
-/* Media queries allow you to change style properties according to the screen width. In this case, if the screen is AT LEAST 540 pixels wide (bigger than a standard phone), the .container resizes to 540 pixels and the buttons and intro resize to 85% of the container width */
-@media (min-width: 540px) {
-    .container {
-        max-width: 540px;
-    }
-    
-    .button,
-    .intro,
-    .slidedown {
-        width: 85%;
-    }
-}
-
-/* If the screen is AT LEAST 768 pixels wide (standard tablet or larger), the .container resizes to 750 pixels and the buttons and intro resize to 40% of the container width */
-@media (min-width: 768px) {
-    .container {
-        max-width: 768px;
-    }
-    
-    .button,
-    .intro,
-    .slidedown {
-        width: 40%;
-    }
+.icon {
+  width: 1.05em;
+  height: 1.05em;
+  flex-shrink: 0;
+  fill: currentColor;
 }
